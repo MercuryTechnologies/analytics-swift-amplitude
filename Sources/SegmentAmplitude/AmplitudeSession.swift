@@ -149,7 +149,7 @@ extension AmplitudeSession {
     
     func startTimer() {
         // Starting and stopping the timer has to be done from the same thread; always dispatch to main queue
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.sessionTimer?.invalidate()
             self.sessionTimer = Timer(timeInterval: self.fireTime, target: self,
                                       selector: #selector(self.handleTimerFire(_:)),
@@ -159,15 +159,15 @@ extension AmplitudeSession {
                 // Use the RunLoop current to avoid retaining self
                 RunLoop.current.add(sessionTimer, forMode: .common)
             }
-        }
+//        }
     }
     
     func stopTimer() {
         // Starting and stopping the timer has to be done from the same thread; always dispatch to main queue
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.sessionTimer?.invalidate()
             self.sessionID = -1
-        }
+//        }
     }
 }
 
